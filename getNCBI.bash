@@ -20,9 +20,9 @@ random_str=`date +%s%N | md5sum|cut -c 1-5` #获取5位随机字符串
 mkdir output_${random_str} #创建输出文件夹
 
 NCBI_json="NCBI.${random_str}.json" #NCBI.XXXXX.json 文件的下载地址信息
-info_list="info.${random_str}.list" #info.XXXXX.list json的解析结果
+info_list="info.${random_str}.xls" #info.XXXXX.xls json文件的解析结果
 download_sh="download.${random_str}.sh" #download.XXXXX.sh 是ascp下载的命令
-MD5="md5.${random_str}.status" #md5.XXXXX.status #MD5检测文件
+MD5="md5.${random_str}.txt" #md5.XXXXX.txt #MD5检测文件
 
 #第1步，获取json文件
 ffq -o $PWD/output_${random_str}/${NCBI_json} $@
@@ -37,7 +37,7 @@ json2tab.py $PWD/output_${random_str}/${NCBI_json} > $PWD/output_${random_str}/$
 if [ $? -eq 0 ];then
 	echo "Output tab info in $PWD/output_${random_str}/${info_list}"
 else
-	echo "Error in step 2, 解析 ${NCBI_json}.json 文件失败!请提交issue！"
+	echo "Error in step 2, 解析 ${NCBI_json}.json 文件失败!请提issue！"
 	exit 1
 fi
 #第3步，获取下载地址

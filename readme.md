@@ -2,7 +2,7 @@
 
 Author Email: `chaimol@163.com`
 
-# 依赖软件：
+# 依赖软件 Requere software
 - python3 模块 json,pandas,sys
 ```
 pip install json
@@ -25,6 +25,7 @@ source ~/.bashrc
 
 # 安装本软件的方法
 ```
+git clone https://github.com/chaimol/getNCBI.git
 chmod 757 getNCBI.bash
 chmod 757 json2tab.py
 echo "export PATH=$PWD:\$PATH" >> ~/.bashrc
@@ -49,9 +50,9 @@ bash getNCBI -t ERP ERP12345678
 # 输出文件（XXXXX是5位随机字符）
 所有文件输出在output_XXXXX文件夹内
 - NCBI.XXXXX.json #文件的下载地址信息
-- info.XXXXX.list #输出的文件
+- info.XXXXX.xls #输出的excel格式的文件
 - download.XXXXX.sh #是ascp下载的命令
-- md5.XXXXX.status #MD5检测文件
+- md5.XXXXX.txt #MD5检测文件
 
 # 注意事项
 默认使用的是100m带宽的下载速度，如果你的带宽更大或更小，请修改
@@ -61,7 +62,7 @@ bash getNCBI -t ERP ERP12345678
 
 # 后续分析
 - 直接使用`bash download.*.sh &`即可开始下载数据
-- 数据下载完成后，`md5sum -c md5.*.status`即可检测下载文件的完整性
+- 数据下载完成后，`md5sum -c md5.*.txt`即可检测下载文件的完整性
 
 
 
