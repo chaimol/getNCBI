@@ -16,13 +16,13 @@ case $1 in
 esac
 
 #创建输出文件
-random_str=`date +%s%N | md5sum|cut -c 1-5` #获取5位随机字符串
+random_str=`date +%s%N | md5sum|cut -c 1-8` #获取8位随机字符串
 mkdir output_${random_str} #创建输出文件夹
 
-NCBI_json="NCBI.${random_str}.json" #NCBI.XXXXX.json 文件的下载地址信息
-info_list="info.${random_str}.xls" #info.XXXXX.xls json文件的解析结果
-download_sh="download.${random_str}.sh" #download.XXXXX.sh 是ascp下载的命令
-MD5="md5.${random_str}.txt" #md5.XXXXX.txt #MD5检测文件
+NCBI_json="NCBI.${random_str}.json" #NCBI.XXXXXXXX.json 文件的下载地址信息
+info_list="info.${random_str}.xls" #info.XXXXXXXX.xls json文件的解析结果
+download_sh="download.${random_str}.sh" #download.XXXXXXXX.sh 是ascp下载的命令
+MD5="md5.${random_str}.txt" #md5.XXXXXXXX.txt #MD5检测文件
 
 #第1步，获取json文件
 ffq -o $PWD/output_${random_str}/${NCBI_json} $@
